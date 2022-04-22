@@ -195,7 +195,7 @@ An enhancer is a function that gets a copy of createStore and then a copy of all
 
 We'll see this when we use the Redux Developer Tools and when we want to dispatch asynchronous actions. It's not super common that you'll write your own enhancers, but you'll use them from time to time.
  */
-const reducer = (state={count: 1}) => state;
+const reducer = (state = { count: 1 }) => state;
 /* 
 const monitorReducerEnhancer =
   (createStore) => (reducer, initialState, enhancer) => {
@@ -260,5 +260,14 @@ const logMiddleware = (store) => (next) => (action) => {
   console.log("After", store.getState(), { action });
 };
 
-const store = createStore(reducer, applyMiddleware(logMiddleware));
-store.dispatch({type:"hello"})
+const monitorMiddleware = (store) => (next) => (action) => {
+  const start = performance.now();
+  next(action);
+  const end = performance.now();
+  const diff = end - start;
+
+  console.log("Reducer process time:", diff);
+};
+
+const store = createStore(reducer, applyMiddleware(logMiddleware, monitorMiddleware));
+store.dispatch({ type: "hello" });
