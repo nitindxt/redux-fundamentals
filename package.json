@@ -1,0 +1,26 @@
+{
+  "name": "redux-fundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitinajaydixit/redux-fundamentals.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitinajaydixit/redux-fundamentals/issues"
+  },
+  "homepage": "https://github.com/nitinajaydixit/redux-fundamentals#readme",
+  "dependencies": {
+    "parcel": "^2.5.0",
+    "redux": "^4.2.0"
+  }
+}
